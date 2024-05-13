@@ -1,5 +1,4 @@
-##JavaScript Events Demo
-
+**JavaScript Events Demo**
 
 
 This repository contains a simple HTML file demonstrating various JavaScript events. 
