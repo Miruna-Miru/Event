@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JS - Events</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .column {
+            width: 45%; /* Adjust as needed */
+        }
+
+        fieldset {
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+        }
+
+        body {
+            background-color: rgb(191, 251, 250);
+        }
+
+        hr {
+            border: 3px bold black;
+        }
+
+        #bb {
+            background-color: blanchedalmond;
+            border-radius: 5px;
+            color: #000;
+        }
+    </style>
+</head>
+<body onload="alert('Loaded Successfully (using onload)')">
+    <center>
+        <h1 id="tit" onmouseover="tit_fun(this)" onmouseout="tit(this)">JS - Events</h1>
+        <br><br>
+        <hr>
+    </center>
+    <div class="container">
+        <div class="column">
+            <h5>Enter number : <input id="num"> <button id="cn" onclick="chk_n()">Check no</button></h5>
+            <fieldset>
+                <legend onclick="chng()" id="f"><center>RESULT :</center></legend>
+                <p id="re"></p>
+            </fieldset>
+            <br>
+            <h5>Enter name : <input type="text" id="t_n" onfocus="sty(this)"></h5>
+            <fieldset>
+                <legend onclick="chng()" id="f3"><center>RESULT :</center></legend>
+                <p id="re3"></p>
+            </fieldset>
+        </div>
+        <div class="column">
+            <h5>Enter a string : <input type="text" id="txt" onchange="upp()"></h5>
+            <fieldset>
+                <legend onclick="chng()" id="f2"><center>RESULT :</center></legend>
+                <p id="re2"></p>
+            </fieldset>
+            <br>
+            <h5>Enter something : <input type="text" id="aa" onkeydown="kk(this)"></h5>
+            <fieldset>
+                <legend onclick="chng()" id="f4"><center>RESULT :</center></legend>
+                <p id="re4"></p>
+            </fieldset>
+            <br><br>
+            <button id="bb" onblur="bl()">Hey Click me and leave</button>
+        </div>
+    </div>
+</body>
+<script>
+    function tit_fun(tt) {
+        tt.innerHTML = 'JS - Events changed with onmouseover';
+    }
+
+    function tit(tt) {
+        tt.innerHTML = 'JS - Events(return to original using onmouseout)';
+    }
+
+    function chk_n() {
+        var n = document.getElementById('num').value;
+        var txt;
+        if (n >= 0 && n <= 99999)
+            txt = 'It is a number\n\nusing onclick';
+        else
+            txt = 'Not a number\n\nusing onclick';
+        document.getElementById('re').innerHTML = txt;
+    }
+
+    function upp() {
+        var tf = document.getElementById('txt');
+        tf.value = tf.value.toUpperCase();
+        var ff = document.getElementById('re2');
+        re2.innerHTML = "Used onchange !!"
+    }
+
+    function sty(o) {
+        o.style.background = ' yellowGreen';
+        document.getElementById('re3').innerHTML = "Used onfocus ";
+    }
+
+    function kk(b) {
+        document.getElementById('re4').innerHTML = 'Used onkeydown';
+    }
+
+    function bl() {
+        document.getElementById('bb').innerHTML = 'Changed when i loss focus (using onblur)'
+    }
+</script>
+</html>
